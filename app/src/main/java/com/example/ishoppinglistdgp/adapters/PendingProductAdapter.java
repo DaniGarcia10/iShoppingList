@@ -38,12 +38,12 @@ public class PendingProductAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false);
-       }
+        }
 
-        Product product = products.get(position);
+        Product producto = products.get(position);
 
         TextView nameTextView = convertView.findViewById(R.id.product_name);
-        nameTextView.setText(product.getNombre());
+        nameTextView.setText(producto.getNombre());
 
         return convertView;
     }

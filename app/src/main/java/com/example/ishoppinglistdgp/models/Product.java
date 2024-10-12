@@ -15,6 +15,7 @@ public class Product implements Serializable {
         this.pending = pending;
     }
 
+
     // Getters and Setters
     public int getId() {
         return id;

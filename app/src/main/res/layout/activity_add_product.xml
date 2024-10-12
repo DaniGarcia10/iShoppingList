@@ -3,56 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".activities.AddProductActivity">
 
-    <EditText
-        android:id="@+id/add_product_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del Producto"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/add_product_note"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Nota Informativa"
-        app:layout_constraintTop_toBottomOf="@+id/add_product_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <EditText
+            android:id="@+id/add_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:hint="Nombre del Producto" />
 
-    <EditText
-        android:id="@+id/add_product_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Estado (Comprado/No Comprado)"
-        app:layout_constraintTop_toBottomOf="@+id/add_product_note"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <EditText
+            android:id="@+id/add_product_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:hint="Nota Informativa" />
 
-    <Button
-        android:id="@+id/add_pending_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        app:layout_constraintTop_toBottomOf="@+id/add_product_status"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <Switch
+            android:id="@+id/switch_product_status"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Pendiente"
+            android:textSize="30dp"/>
 
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        app:layout_constraintTop_toBottomOf="@+id/add_pending_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <Button
+            android:id="@+id/add_pending_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:textSize="30dp"
+            android:text="Guardar" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:textSize="30dp"
+            android:text="Cancelar" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

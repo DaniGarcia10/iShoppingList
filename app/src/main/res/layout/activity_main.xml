@@ -3,44 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink"
-    android:textColor="@color/white"
-    tools:context=".activities.MainActivity">
+    android:background="@color/pink">
 
-    <ListView
-        android:id="@+id/product_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/add_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/pink">
 
-    </ListView>
+        <ListView
+            android:id="@+id/product_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/purple"
-        android:textColor="@color/white"
-        android:text="AÑADIR PRODUCTO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pending_button" />
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:text="AÑADIR PRODUCTO" />
 
-    <Button
-        android:id="@+id/pending_button"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/purple"
-        android:textColor="@color/white"
-        android:text="AÑADIR PENDIENTE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/add_button"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/pending_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:text="PENDIENTES" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,35 +26,48 @@ public class EditProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product);
 
+        // Obtengo elementos
         nameEditText = findViewById(R.id.edit_product_name);
         noteEditText = findViewById(R.id.edit_product_note);
         statusSwitch = findViewById(R.id.edit_product_status);
         saveButton = findViewById(R.id.add_pending_button);
-        cancelButton = findViewById(R.id.cancel_button);
+        cancelButton = findViewById(R.id.back_button);
 
+        // Obtengo el producto
         int productId = getIntent().getIntExtra("productId", -1);
         Product product = ProductRepository.getProductById(productId);
 
+        // Si el producto no es nulo, se establecen los valores en los campos
         if (product != null) {
             nameEditText.setText(product.getNombre());
             noteEditText.setText(product.getNotaInformativa());
             statusSwitch.setChecked(product.isPending());
         } else {
-            finish(); // Cierra la actividad si el producto no se encuentra
+            //Si no se encuentra el producto, se cierra la actividad
+            finish();
         }
 
+        // Guardar cambios
         saveButton.setOnClickListener(v -> {
+            // Actualizo el producto
             if (product != null) {
                 product.setNombre(nameEditText.getText().toString());
                 product.setNotaInformativa(noteEditText.getText().toString());
                 product.setPending(statusSwitch.isChecked());
+                // Actualizo el producto en la base de datos
                 ProductRepository.updateProducto(product);
+                // Actualizo el producto en la lista de productos
+                ProductRepository.updateProductList(product);
+                // Actualizo el producto en la lista de productos pendientes
+                ProductRepository.updatePendingProductList(product);
             }
+            //Intent para ir a la actividad de detalle del producto
             Intent intent = new Intent(EditProductActivity.this, ProductDetailActivity.class);
             startActivity(intent);
             finish();
         });
 
+        // Cancelar cambios
         cancelButton.setOnClickListener(v -> {
             finish();
         });

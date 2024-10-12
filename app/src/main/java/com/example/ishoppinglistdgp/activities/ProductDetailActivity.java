@@ -34,7 +34,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         if (product != null) {
             nameTextView.setText(product.getNombre());
             noteTextView.setText(product.getNotaInformativa());
-            statusTextView.setText(product.isPending() ? "Comprado" : "Pendiente");
+            statusTextView.setText(product.isPending() ? "Pendiente" : "No Pendiente");
         } else {
             finish(); // Cierra la actividad si el producto no se encuentra
         }

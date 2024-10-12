@@ -5,55 +5,45 @@
     android:layout_height="match_parent"
     tools:context=".activities.ProductDetailActivity">
 
-    <TextView
-        android:id="@+id/product_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/product_note"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/product_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
 
+        <TextView
+            android:id="@+id/product_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp" />
 
-    <TextView
-        android:id="@+id/product_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/product_note"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/product_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp" />
 
-    <Button
-        android:id="@+id/edit_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="EDITAR"
-        app:layout_constraintTop_toBottomOf="@+id/product_status"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:text="EDITAR"
+            android:textSize="30dp"/>
 
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="VOLVER"
-        app:layout_constraintTop_toBottomOf="@+id/edit_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp" />
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:text="VOLVER"
+           android:textSize="30dp"/>
 
+        </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,63 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cyan"
     tools:context=".activities.AddPendingProductActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/pink"
         android:orientation="vertical">
 
         <Spinner
             android:id="@+id/product_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp" />
+            android:layout_height="60dp"
+            android:backgroundTint="@color/pink"
+            android:textColor="@color/white"
+            android:textSize="30dp"/>
 
         <Button
             android:id="@+id/add_pending_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
             android:text="Añadir a Pendientes"
-            app:layout_constraintTop_toBottomOf="@+id/product_spinner"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp" />
+            android:textSize="30dp"/>
 
         <Button
-            android:id="@+id/cancel_button"
+            android:id="@+id/back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cancelar"
-            app:layout_constraintTop_toBottomOf="@+id/add_pending_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp" />
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:text="Atras"
+            android:textSize="30dp"/>
 
         <!-- Lista de productos pendientes -->
         <TextView
             android:id="@+id/tvPendingProducts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:textColor="@color/cyan"
+            android:background="@color/purple"
+            android:textColor="@color/white"
             android:text="Lista de Productos Pendientes"
-            android:textSize="30dp"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="185dp" />
+            android:textSize="30dp" />
 
         <ListView
             android:id="@+id/pending_product_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPendingProducts"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp" />
+            android:background="@color/pink"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

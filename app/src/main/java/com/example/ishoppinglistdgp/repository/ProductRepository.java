@@ -52,4 +52,21 @@ public class ProductRepository {
         }
     }
 
+    public static void updateProductList(Product product) {
+        for (int i = 0; i < pendingProducts.size(); i++) {
+            if (pendingProducts.get(i).getId() == product.getId()) {
+                pendingProducts.set(i, product);
+                return;
+            }
+        }
+    }
+
+    public static void updatePendingProductList(Product product) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == product.getId()) {
+                products.set(i, product);
+                return;
+            }
+        }
+    }
 }
