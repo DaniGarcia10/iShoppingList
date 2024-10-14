@@ -39,9 +39,9 @@ public class EditProductActivity extends AppCompatActivity {
 
         // Si el producto no es nulo, se establecen los valores en los campos
         if (product != null) {
-            nameEditText.setText(product.getNombre());
-            noteEditText.setText(product.getNotaInformativa());
-            statusSwitch.setChecked(product.isPending());
+            nameEditText.setText(product.getName());
+            noteEditText.setText(product.getNote());
+            statusSwitch.setChecked(product.isStatus());
         } else {
             //Si no se encuentra el producto, se cierra la actividad
             finish();
@@ -51,15 +51,10 @@ public class EditProductActivity extends AppCompatActivity {
         saveButton.setOnClickListener(v -> {
             // Actualizo el producto
             if (product != null) {
-                product.setNombre(nameEditText.getText().toString());
-                product.setNotaInformativa(noteEditText.getText().toString());
-                product.setPending(statusSwitch.isChecked());
-                // Actualizo el producto en la base de datos
-                ProductRepository.updateProducto(product);
-                // Actualizo el producto en la lista de productos
-                ProductRepository.updateProductList(product);
-                // Actualizo el producto en la lista de productos pendientes
-                ProductRepository.updatePendingProductList(product);
+                product.setName(nameEditText.getText().toString());
+                product.setNote(noteEditText.getText().toString());
+                product.setStatus(statusSwitch.isChecked());
+                
             }
             //Intent para ir a la actividad de detalle del producto
             Intent intent = new Intent(EditProductActivity.this, ProductDetailActivity.class);

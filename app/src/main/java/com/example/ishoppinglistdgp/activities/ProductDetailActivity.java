@@ -32,9 +32,9 @@ public class ProductDetailActivity extends AppCompatActivity {
         Product product = ProductRepository.getProductById(productId);
 
         if (product != null) {
-            nameTextView.setText(product.getNombre());
-            noteTextView.setText(product.getNotaInformativa());
-            statusTextView.setText(product.isPending() ? "Pendiente" : "No Pendiente");
+            nameTextView.setText(product.getName());
+            noteTextView.setText(product.getNote());
+            statusTextView.setText(product.isStatus() ? "Pendiente" : "No Pendiente");
         } else {
             finish(); // Cierra la actividad si el producto no se encuentra
         }

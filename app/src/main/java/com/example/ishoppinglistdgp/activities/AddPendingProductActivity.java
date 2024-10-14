@@ -1,5 +1,8 @@
 package com.example.ishoppinglistdgp.activities;
 
+import static com.example.ishoppinglistdgp.repository.ProductRepository.fillNotPendingProducts;
+import static com.example.ishoppinglistdgp.repository.ProductRepository.fillPendingProducts;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -9,7 +12,6 @@ import android.widget.Spinner;
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.models.Product;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
-import com.example.ishoppinglistdgp.adapters.PendingProductAdapter;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,60 +22,42 @@ public class AddPendingProductActivity extends AppCompatActivity {
     private Button cancelButton;
     private ListView pendingProductList;
 
+    private List<Product> notPendingProducts;
+
     @Override
+    //
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pending_product);
 
         //Llamo a los elementos
         pendingProductList = findViewById(R.id.pending_product_list);
+        notPendingProducts = ProductRepository.getNotPendingProducts();
         productSpinner = findViewById(R.id.product_spinner);
         saveButton = findViewById(R.id.add_pending_button);
         cancelButton = findViewById(R.id.back_button);
 
-        //Filtro los productos que no estan pendientes
-        List<Product> nonPendingProducts = ProductRepository.getProducts().stream()
-                .filter(producto -> !producto.isPending())
-                .collect(Collectors.toList());
+        //Obtengo la lista de productos pendientes de ProductRepository
+        List<Product> pendingProducts = ProductRepository.getPendingProductos();
+
+        //Obtengo la lista de productos no pendientes de ProductRepository
+        List<Product> notPendingProducts = ProductRepository.getNotPendingProducts();
 
         //Creo el adaptador para el spinner
-        ArrayAdapter<Product> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, nonPendingProducts);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<Product> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, notPendingProducts);
+        fillNotPendingProducts();
         productSpinner.setAdapter(adapter);
-        //Actualizo la lista
-        updatePendingProductList();
 
-        //Filtro los productos que estan pendientes
-        List<Product> pendingProductos = ProductRepository.getProducts().stream()
-                .filter(producto -> producto.isPending())
-                .collect(Collectors.toList());
-        //Creo el adaptador para la lista
-        PendingProductAdapter pendingProductAdapter = new PendingProductAdapter(this, pendingProductos);
-        pendingProductList.setAdapter(pendingProductAdapter);
-        //Actualizo la lista
-        updatePendingProductList();
 
-        //Boton de guardar
+        //Boton de agregar
         saveButton.setOnClickListener(v -> {
-            //Obtengo el nombre del producto
-            String productName = productSpinner.getSelectedItem().toString();
-            //Creo el producto
-            Product product = new Product(ProductRepository.getPendingProductos().size() + 1, productName, "", true);
-            //Agrego el producto a la lista de pendientes
-            ProductRepository.addPendingProducto(product);
-            //Actualizo la lista
-            updatePendingProductList();
+            Product product = (Product) productSpinner.getSelectedItem();
+            product.setStatus(true);
+            finish();
         });
 
         //Boton de cancelar
         cancelButton.setOnClickListener(v -> finish());
 
-
-    }
-    //Metodo para actualizar la lista de productos pendientes
-    private void updatePendingProductList() {
-        ListView pendingProductList = findViewById(R.id.pending_product_list);
-        PendingProductAdapter adapter = new PendingProductAdapter(this, ProductRepository.getPendingProductos());
-        pendingProductList.setAdapter(adapter);
     }
 }

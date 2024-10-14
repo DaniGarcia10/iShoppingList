@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
-
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.models.Product;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
@@ -38,8 +37,9 @@ public class AddProductActivity extends AppCompatActivity {
 
             Product product = new Product(ProductRepository.getProducts().size() + 1, name, note, status);
             ProductRepository.addProduct(product);
+            ProductRepository.fillNotPendingProducts();
+
             finish();
-            //Actualizo la lista
         });
 
         cancelButton.setOnClickListener(v -> finish());

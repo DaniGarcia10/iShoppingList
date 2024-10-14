@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
     private int id;
-    private String nombre;
-    private String notaInformativa;
-    private boolean pending;
+    private String name;
+    private String note;
+    private boolean status;
 
-    public Product(int id, String nombre, String notaInformativa, boolean pending) {
+    // Constructor
+    public Product(int id, String name, String note, boolean status) {
         this.id = id;
-        this.nombre = nombre;
-        this.notaInformativa = notaInformativa;
-        this.pending = pending;
+        this.name = name;
+        this.note = note;
+        this.status = status;
     }
 
 
@@ -25,33 +26,34 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNotaInformativa() {
-        return notaInformativa;
+    public String getNote() {
+        return note;
     }
 
-    public void setNotaInformativa(String notaInformativa) {
-        this.notaInformativa = notaInformativa;
+    public void setNote(String note) {
+        this.note = note;
     }
 
-    public boolean isPending() {
-        return pending;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setPending(boolean pending) {
-        this.pending = pending;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     // toString
     @Override
+    // Devuelve el nombre
     public String toString() {
-        return nombre;
+        return name;
     }
 }

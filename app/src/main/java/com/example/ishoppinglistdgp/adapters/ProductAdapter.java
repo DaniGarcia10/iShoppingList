@@ -40,10 +40,10 @@ public class ProductAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false);
         }
 
+        //Obtengo el producto
         Product product = products.get(position);
-
         TextView nameTextView = convertView.findViewById(R.id.product_name);
-        nameTextView.setText(product.getNombre());
+        nameTextView.setText(product.getName());
 
         return convertView;
     }
