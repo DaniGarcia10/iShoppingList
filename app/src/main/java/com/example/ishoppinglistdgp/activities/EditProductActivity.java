@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
-
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.models.Product;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
@@ -18,7 +17,6 @@ public class EditProductActivity extends AppCompatActivity {
     private Switch statusSwitch;
     private Button saveButton;
     private Button cancelButton;
-    private int productId;
 
     // EditProductActivity.java
     @Override
@@ -26,14 +24,14 @@ public class EditProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_product);
 
-        // Obtengo elementos
+        //Obtengo elementos
         nameEditText = findViewById(R.id.edit_product_name);
         noteEditText = findViewById(R.id.edit_product_note);
-        statusSwitch = findViewById(R.id.edit_product_status);
+        statusSwitch = findViewById(R.id.switch_product_status);
         saveButton = findViewById(R.id.add_pending_button);
         cancelButton = findViewById(R.id.back_button);
 
-        // Obtengo el producto
+        //Obtengo el producto
         int productId = getIntent().getIntExtra("productId", -1);
         Product product = ProductRepository.getProductById(productId);
 
@@ -47,14 +45,13 @@ public class EditProductActivity extends AppCompatActivity {
             finish();
         }
 
-        // Guardar cambios
+        //Guardar los cambios
         saveButton.setOnClickListener(v -> {
             // Actualizo el producto
             if (product != null) {
                 product.setName(nameEditText.getText().toString());
                 product.setNote(noteEditText.getText().toString());
                 product.setStatus(statusSwitch.isChecked());
-                
             }
             //Intent para ir a la actividad de detalle del producto
             Intent intent = new Intent(EditProductActivity.this, ProductDetailActivity.class);
@@ -62,7 +59,7 @@ public class EditProductActivity extends AppCompatActivity {
             finish();
         });
 
-        // Cancelar cambios
+        //Cancelar cambios
         cancelButton.setOnClickListener(v -> {
             finish();
         });

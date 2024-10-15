@@ -1,49 +1,47 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ProductDetailActivity">
+    android:background="@color/pink"
+    android:textColor="@color/black"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <!-- Nombre del producto -->
+    <TextView
+        android:id="@+id/product_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/pink"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:textSize="30dp"/>
 
-        <TextView
-            android:id="@+id/product_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"/>
+    <!-- Nota -->
+    <TextView
+        android:id="@+id/product_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/product_note"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp" />
+    <!-- Estado -->
+    <TextView
+        android:id="@+id/product_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp" />
 
-        <TextView
-            android:id="@+id/product_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp" />
+    <!-- Boton de editar -->
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:text="EDITAR"
+        android:textSize="30dp"/>
 
-        <Button
-            android:id="@+id/edit_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple"
-            android:text="EDITAR"
-            android:textSize="30dp"/>
-
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple"
-            android:text="VOLVER"
-           android:textSize="30dp"/>
-
-        </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Boton de volver -->
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:text="VOLVER"
+        android:textSize="30dp"/>
+    </LinearLayout>

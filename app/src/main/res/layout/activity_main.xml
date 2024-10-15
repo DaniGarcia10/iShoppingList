@@ -1,39 +1,46 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/pink">
-
-    <LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/pink">
 
-        <ListView
-            android:id="@+id/product_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textColor="@color/white" />
+    <!-- Titulo -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PRODUCTOS"
+        android:textSize="24sp"
+        android:background="@color/purple"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:padding="16dp" />
 
-        <Button
-            android:id="@+id/add_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple"
-            android:textColor="@color/white"
-            android:text="AÑADIR PRODUCTO" />
+    <!-- Lista de productos -->
+    <ListView
+        android:id="@+id/product_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/pending_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple"
-            android:textColor="@color/white"
-            android:text="PENDIENTES" />
+    <!-- Boton de añadir producto -->
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/white"
+        android:text="AÑADIR PRODUCTO" />
 
-    </LinearLayout>
+    <!-- Boton de productos pendientes -->
+    <Button
+        android:id="@+id/pending_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/white"
+        android:text="PENDIENTES" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -20,25 +20,30 @@ public class AddProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_product);
+        setContentView(R.layout.activity_edit_product);
 
         //Llamo a los elementos
-        nameEditText = findViewById(R.id.add_product_name);
-        noteEditText = findViewById(R.id.add_product_note);
+        nameEditText = findViewById(R.id.edit_product_name);
+        noteEditText = findViewById(R.id.edit_product_note);
         switch_product_status = findViewById(R.id.switch_product_status);
         saveButton = findViewById(R.id.add_pending_button);
         cancelButton = findViewById(R.id.back_button);
 
         //Boton de guardar
         saveButton.setOnClickListener(v -> {
+            //Extraigo los datos de los campos
             String name = nameEditText.getText().toString();
             String note = noteEditText.getText().toString();
             boolean status = switch_product_status.isChecked();
 
+            //Creo el producto
             Product product = new Product(ProductRepository.getProducts().size() + 1, name, note, status);
+            //
             ProductRepository.addProduct(product);
+            //Recargo la lista de productos no pendientes
             ProductRepository.fillNotPendingProducts();
-
+            //Recargo la lista de productos pendiente
+            ProductRepository.fillPendingProducts();
             finish();
         });
 

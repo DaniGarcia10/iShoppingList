@@ -1,25 +1,20 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.AddPendingProductActivity">
-
-    <LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pink"
         android:orientation="vertical">
 
+        <!-- Spinner -->
         <Spinner
             android:id="@+id/product_spinner"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/pink"
+            android:backgroundTint="@color/pink"
             android:textColor="@color/white"
             android:textSize="30dp"/>
 
+        <!-- Boton de añadir producto -->
         <Button
             android:id="@+id/add_pending_button"
             android:layout_width="match_parent"
@@ -29,6 +24,7 @@
             android:text="Añadir a Pendientes"
             android:textSize="30dp"/>
 
+        <!-- Boton de atras -->
         <Button
             android:id="@+id/back_button"
             android:layout_width="match_parent"
@@ -38,7 +34,7 @@
             android:text="Atras"
             android:textSize="30dp"/>
 
-        <!-- Lista de productos pendientes -->
+        <!-- Titulo productos pendientes -->
         <TextView
             android:id="@+id/tvPendingProducts"
             android:layout_width="match_parent"
@@ -48,6 +44,7 @@
             android:text="Lista de Productos Pendientes"
             android:textSize="30dp" />
 
+        <!-- Lista de productos pendientes -->
         <ListView
             android:id="@+id/pending_product_list"
             android:layout_width="match_parent"
@@ -56,5 +53,3 @@
             android:textColor="@color/black" />
 
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

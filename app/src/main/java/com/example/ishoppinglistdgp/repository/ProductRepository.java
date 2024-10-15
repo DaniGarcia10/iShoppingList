@@ -26,15 +26,15 @@ public class ProductRepository {
         products.add(new Product(9, "Sal", "1 kilo", false));
         products.add(new Product(10, "Papas", "1 kilo", false));
         products.add(new Product(11, "Tomates", "1 kilo", false));
-        products.add(new Product(12, "Cebollas", "1 kilo", false));
-        products.add(new Product(13, "Zanahorias", "1 kilo", false));
-        products.add(new Product(14, "Bananas", "1 kilo", false));
-        products.add(new Product(15, "Manzanas", "1 kilo", false));
-        products.add(new Product(16, "Naranjas", "1 kilo", false));
-        products.add(new Product(17, "Mandarinas", "1 kilo", false));
-        products.add(new Product(18, "Limon", "1 kilo", false));
-        products.add(new Product(19, "Lechuga", "1 unidad", false));
-        products.add(new Product(20, "Coca Cola", "2 litros", false));
+        products.add(new Product(12, "Cebollas", "1 kilo", true));
+        products.add(new Product(13, "Zanahorias", "1 kilo", true));
+        products.add(new Product(14, "Bananas", "1 kilo", true));
+        products.add(new Product(15, "Manzanas", "1 kilo", true));
+        products.add(new Product(16, "Naranjas", "1 kilo", true));
+        products.add(new Product(17, "Mandarinas", "1 kilo", true));
+        products.add(new Product(18, "Limon", "1 kilo", true));
+        products.add(new Product(19, "Lechuga", "1 unidad", true));
+        products.add(new Product(20, "Coca Cola", "2 litros", true));
 
     }
 

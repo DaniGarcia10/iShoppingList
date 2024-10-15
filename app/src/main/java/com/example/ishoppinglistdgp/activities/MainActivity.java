@@ -2,25 +2,21 @@ package com.example.ishoppinglistdgp.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.adapters.ProductAdapter;
-import com.example.ishoppinglistdgp.models.Product;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Declaro las variables
     private ListView listView;
     private Button addButton;
     private Button pendingButton;
-    private ArrayAdapter<Product> adapter;
-    private List<Product> products;
+    private ProductAdapter adapter;
 
-
+//Metodo para crear la actividad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         pendingButton = findViewById(R.id.pending_button);
 
         //Adaptador para la lista de productos
-        ProductAdapter adapter = new ProductAdapter(this, ProductRepository.getProducts());
+        adapter = new ProductAdapter(this, ProductRepository.getProducts());
         listView.setAdapter(adapter);
 
         //Evento para ver el detalle de un producto
@@ -41,11 +37,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        //Evento para agregar un producto
         addButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddProductActivity.class);
             startActivity(intent);
         });
 
+        //Evento para ver los productos pendientes
         pendingButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddPendingProductActivity.class);
             startActivity(intent);
