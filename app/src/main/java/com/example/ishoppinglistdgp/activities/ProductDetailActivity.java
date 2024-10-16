@@ -14,6 +14,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView noteTextView;
     private TextView statusTextView;
+    private TextView lactosaTextView;
+    private TextView glutenTextView;
     private Button editButton;
     private Button backButton;
 
@@ -28,6 +30,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         nameTextView = findViewById(R.id.product_name);
         noteTextView = findViewById(R.id.product_note);
         statusTextView = findViewById(R.id.product_status);
+        lactosaTextView = findViewById(R.id.product_lactosa);
+        glutenTextView = findViewById(R.id.product_gluten);
         editButton = findViewById(R.id.edit_button);
         backButton = findViewById(R.id.back_button);
 
@@ -40,6 +44,8 @@ public class ProductDetailActivity extends AppCompatActivity {
             nameTextView.setText(product.getName());
             noteTextView.setText(product.getNote());
             statusTextView.setText(product.isStatus() ? "Pendiente" : "No Pendiente");
+            lactosaTextView.setText(product.isLactosa() ? "Con Lactosa" : "Sin Lactosa");
+            glutenTextView.setText(product.isGluten() ? "Con gluten" : "Sin Gluten");
         } else {
             //Cierro la actividad si el producto no existe
             finish();

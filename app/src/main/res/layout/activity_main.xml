@@ -17,6 +17,15 @@
         android:gravity="center"
         android:padding="16dp" />
 
+    <!-- Spinner -->
+    <Spinner
+        android:id="@+id/product_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/pink"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
     <!-- Lista de productos -->
     <ListView
         android:id="@+id/product_list"

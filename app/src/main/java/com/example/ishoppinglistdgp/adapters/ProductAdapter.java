@@ -1,6 +1,7 @@
 package com.example.ishoppinglistdgp.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,16 @@ public class ProductAdapter extends BaseAdapter {
         return products.get(position).getId();
     }
 
+    //Metodo para obtener la lactosa de un producto
+    public boolean getLactosa(int position) {
+        return products.get(position).isLactosa();
+    }
+
+    //Metodo para obtener el gluten de un producto
+    public boolean getGluten(int position) {
+        return products.get(position).isGluten();
+    }
+
     //Metodo para obtener la vista
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -49,6 +60,17 @@ public class ProductAdapter extends BaseAdapter {
         Product product = products.get(position);
         TextView nameTextView = convertView.findViewById(R.id.product_name);
         nameTextView.setText(product.getName());
+
+        // Cambiar el color de fondo
+        if (product.isLactosa() && product.isGluten()) {
+            convertView.setBackgroundColor(Color.parseColor("#B2EBF2"));
+        } else if (product.isLactosa()) {
+            convertView.setBackgroundColor(Color.parseColor("#F8BBD0"));
+        } else if (product.isGluten()) {
+            convertView.setBackgroundColor(Color.parseColor("#D7CCC8"));
+        } else {
+            convertView.setBackgroundColor(Color.TRANSPARENT);
+        }
 
         return convertView;
     }

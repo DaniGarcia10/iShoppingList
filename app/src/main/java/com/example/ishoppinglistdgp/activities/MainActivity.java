@@ -1,4 +1,6 @@
 package com.example.ishoppinglistdgp.activities;
+import static com.example.ishoppinglistdgp.repository.ProductRepository.fillNotPendingProducts;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +9,8 @@ import android.widget.ListView;
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.adapters.ProductAdapter;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

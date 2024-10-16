@@ -16,6 +16,8 @@ public class AddProductActivity extends AppCompatActivity {
     private Switch switch_product_status;
     private Button saveButton;
     private Button cancelButton;
+    private Switch lactosaSwitch;
+    private Switch glutenSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class AddProductActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.edit_product_name);
         noteEditText = findViewById(R.id.edit_product_note);
         switch_product_status = findViewById(R.id.switch_product_status);
+        lactosaSwitch = findViewById(R.id.switch_product_lactosa);
+        glutenSwitch = findViewById(R.id.switch_product_gluten);
         saveButton = findViewById(R.id.add_pending_button);
         cancelButton = findViewById(R.id.back_button);
 
@@ -35,9 +39,11 @@ public class AddProductActivity extends AppCompatActivity {
             String name = nameEditText.getText().toString();
             String note = noteEditText.getText().toString();
             boolean status = switch_product_status.isChecked();
+            boolean lactosa = lactosaSwitch.isChecked();
+            boolean gluten = glutenSwitch.isChecked();
 
             //Creo el producto
-            Product product = new Product(ProductRepository.getProducts().size() + 1, name, note, status);
+            Product product = new Product(ProductRepository.getProducts().size() + 1, name, note, status, lactosa, gluten);
             //
             ProductRepository.addProduct(product);
             //Recargo la lista de productos no pendientes

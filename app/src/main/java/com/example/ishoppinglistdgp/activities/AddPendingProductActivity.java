@@ -9,12 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+
 import com.example.ishoppinglistdgp.R;
 import com.example.ishoppinglistdgp.models.Product;
 import com.example.ishoppinglistdgp.repository.ProductRepository;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AddPendingProductActivity extends AppCompatActivity {
     private Spinner productSpinner;
@@ -26,6 +25,7 @@ public class AddPendingProductActivity extends AppCompatActivity {
 
     @Override
     //
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pending_product);

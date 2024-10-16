@@ -27,6 +27,20 @@
         android:layout_height="wrap_content"
         android:textSize="30dp" />
 
+    <!-- Lactosa -->
+    <TextView
+        android:id="@+id/product_lactosa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp" />
+
+    <!-- Gluten -->
+    <TextView
+        android:id="@+id/product_gluten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp" />
+
     <!-- Boton de editar -->
     <Button
         android:id="@+id/edit_button"

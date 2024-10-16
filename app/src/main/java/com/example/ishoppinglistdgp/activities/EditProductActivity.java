@@ -17,6 +17,9 @@ public class EditProductActivity extends AppCompatActivity {
     private Switch statusSwitch;
     private Button saveButton;
     private Button cancelButton;
+    private Switch lactosaSwitch;
+
+    private Switch glutenSwitch;
 
     // EditProductActivity.java
     @Override
@@ -30,6 +33,8 @@ public class EditProductActivity extends AppCompatActivity {
         statusSwitch = findViewById(R.id.switch_product_status);
         saveButton = findViewById(R.id.add_pending_button);
         cancelButton = findViewById(R.id.back_button);
+        lactosaSwitch = findViewById(R.id.switch_product_lactosa);
+        glutenSwitch = findViewById(R.id.switch_product_gluten);
 
         //Obtengo el producto
         int productId = getIntent().getIntExtra("productId", -1);
@@ -40,6 +45,8 @@ public class EditProductActivity extends AppCompatActivity {
             nameEditText.setText(product.getName());
             noteEditText.setText(product.getNote());
             statusSwitch.setChecked(product.isStatus());
+            lactosaSwitch.setChecked(product.isLactosa());
+            glutenSwitch.setChecked(product.isGluten());
         } else {
             //Si no se encuentra el producto, se cierra la actividad
             finish();
@@ -52,6 +59,9 @@ public class EditProductActivity extends AppCompatActivity {
                 product.setName(nameEditText.getText().toString());
                 product.setNote(noteEditText.getText().toString());
                 product.setStatus(statusSwitch.isChecked());
+                product.setLactosa(lactosaSwitch.isChecked());
+                product.setGluten(glutenSwitch.isChecked());
+
             }
             //Intent para ir a la actividad de detalle del producto
             Intent intent = new Intent(EditProductActivity.this, ProductDetailActivity.class);

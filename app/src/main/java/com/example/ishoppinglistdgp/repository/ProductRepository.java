@@ -13,31 +13,36 @@ public class ProductRepository {
     //Creo una lista de productos no pendientes
     private static List<Product> notPendingProducts = new ArrayList<>();
 
+    //Creo una lista de productos sin lactosa
+    private static List<Product> sinLactosaProducts = new ArrayList<>();
+
+    //Creo una lista de productos sin gluten
+    private static List<Product> sinGlutenProducts = new ArrayList<>();
+
     static {
         //Agrego productos a la lista
-        products.add(new Product(1, "Leche", "2 litros", false));
-        products.add(new Product(2, "Pan", "Integral", false));
-        products.add(new Product(3, "Huevos", "Docena", false));
-        products.add(new Product(4, "Azucar", "1 kilo", false));
-        products.add(new Product(5, "Cafe", "1 kilo", false));
-        products.add(new Product(6, "Arroz", "1 kilo", false));
-        products.add(new Product(7, "Fideos", "1 kilo", false));
-        products.add(new Product(8, "Aceite", "1 litro", false));
-        products.add(new Product(9, "Sal", "1 kilo", false));
-        products.add(new Product(10, "Papas", "1 kilo", false));
-        products.add(new Product(11, "Tomates", "1 kilo", false));
-        products.add(new Product(12, "Cebollas", "1 kilo", true));
-        products.add(new Product(13, "Zanahorias", "1 kilo", true));
-        products.add(new Product(14, "Bananas", "1 kilo", true));
-        products.add(new Product(15, "Manzanas", "1 kilo", true));
-        products.add(new Product(16, "Naranjas", "1 kilo", true));
-        products.add(new Product(17, "Mandarinas", "1 kilo", true));
-        products.add(new Product(18, "Limon", "1 kilo", true));
-        products.add(new Product(19, "Lechuga", "1 unidad", true));
-        products.add(new Product(20, "Coca Cola", "2 litros", true));
+        products.add(new Product(1, "Leche", "2 litros", false, false, false ));
+        products.add(new Product(2, "Pan", "Integral", false, false, false));
+        products.add(new Product(3, "Huevos", "Docena", false, false, false));
+        products.add(new Product(4, "Azucar", "1 kilo", false, false, false));
+        products.add(new Product(5, "Cafe", "1 kilo", false, false, false));
+        products.add(new Product(6, "Arroz", "1 kilo", false, false, false));
+        products.add(new Product(7, "Fideos", "1 kilo", false, false, false));
+        products.add(new Product(8, "Aceite", "1 litro", false, false, false));
+        products.add(new Product(9, "Sal", "1 kilo", false, false, true));
+        products.add(new Product(10, "Papas", "1 kilo", false, false, true));
+        products.add(new Product(11, "Tomates", "1 kilo", false, true, false));
+        products.add(new Product(12, "Cebollas", "1 kilo", true, true, false));
+        products.add(new Product(13, "Zanahorias", "1 kilo", true, true, true));
+        products.add(new Product(14, "Bananas", "1 kilo", true, true, true));
+        products.add(new Product(15, "Manzanas", "1 kilo", true, true, true));
+        products.add(new Product(16, "Naranjas", "1 kilo", true, true, true));
+        products.add(new Product(17, "Mandarinas", "1 kilo", true, true, true));
+        products.add(new Product(18, "Limon", "1 kilo", true, true, true));
+        products.add(new Product(19, "Lechuga", "1 unidad", true, true, true));
+        products.add(new Product(20, "Coca Cola", "2 litros", true, true, true));
 
     }
-
 
     //Metodo para obtener la lista de productos
     public static List<Product> getProducts() {
@@ -92,4 +97,30 @@ public class ProductRepository {
         }
     }
 
+    //Metodo para llenar la lista de productos sin lactosa
+    public static List<Product> sinLactosaProducts() {
+        for (Product product : products) {
+            //Si lactosa es false
+            if (!product.isLactosa()) {
+                sinLactosaProducts.add(product);
+            }
+
+        }
+        return null;
+    }
+
+    //Metodo para llenar la lista de productos sin gluten
+    public static List<Product> sinGlutenProducts() {
+        for (Product product : products) {
+            //Si gluten es false
+            if (!product.isGluten()) {
+                sinGlutenProducts.add(product);
+            }
+
+        }
+        return null;
+    }
+
+
 }
+

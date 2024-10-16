@@ -1,5 +1,7 @@
 package com.example.ishoppinglistdgp.models;
 
+import android.widget.Switch;
+
 import java.io.Serializable;
 
 public class Product implements Serializable {
@@ -8,12 +10,18 @@ public class Product implements Serializable {
     private String note;
     private boolean status;
 
+    private boolean lactosa;
+
+    private boolean gluten;
+
     // Constructor
-    public Product(int id, String name, String note, boolean status) {
+    public Product(int id, String name, String note, boolean status, boolean lactosa, boolean gluten) {
         this.id = id;
         this.name = name;
         this.note = note;
         this.status = status;
+        this.lactosa = lactosa;
+        this.gluten = gluten;
     }
 
 
@@ -48,6 +56,22 @@ public class Product implements Serializable {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public boolean isLactosa() {
+        return lactosa;
+    }
+
+    public void setLactosa(boolean lactosa) {
+        this.lactosa = lactosa;
+    }
+
+    public boolean isGluten() {
+        return gluten;
+    }
+
+    public void setGluten(boolean gluten) {
+        this.gluten = gluten;
     }
 
     // toString

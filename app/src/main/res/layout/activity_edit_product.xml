@@ -29,6 +29,22 @@
             android:text="Pendiente"
             android:textSize="40dp"/>
 
+        <!-- Lactosa -->
+        <Switch
+            android:id="@+id/switch_product_lactosa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lactosa"
+            android:textSize="40dp"/>
+
+        <!-- Gluten -->
+        <Switch
+            android:id="@+id/switch_product_gluten"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gluten"
+            android:textSize="40dp"/>
+
         <!-- Boton guardar -->
         <Button
             android:id="@+id/add_pending_button"
